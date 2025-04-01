@@ -1,5 +1,15 @@
+/* 
+@import 规则用于从其他样式表导入样式规则
+这里导入了 Tailwind CSS 框架，这是一个实用工具优先的 CSS 框架
+ */
 @import "tailwindcss";
 
+/* 
+:root 是一个伪类选择器，代表文档的根元素（通常是 <html> 元素）
+--name: value 语法定义了 CSS 变量（也称为自定义属性）
+变量名前必须有两个连字符（--）
+这些变量可以在整个文档中被引用
+*/
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -7,6 +17,15 @@
   --primary-hover: #0051a8;
 }
 
+/* 
+@theme inline 是一个特殊的规则，可能是某个框架或库的自定义语法
+--color-background 和 --color-foreground 是 CSS 变量，用于存储背景色和前景色
+--font-sans 和 --font-mono 是 CSS 变量，用于存储字体族
+
+它定义了主题变量，并引用了其他变量作为值
+这种方式可以创建主题变量的别名或层次结构
+
+*/
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -14,6 +33,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* 
+@media 规则用于根据设备特性应用不同的样式
+prefers-color-scheme: dark 检测用户是否启用了暗色模式
+在暗色模式下，重新定义了颜色变量的值，实现了自动的明暗主题切换
+*/
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -38,7 +62,9 @@ body {
 .nav-link:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
-
+/* 
+在暗黑模式下，鼠标悬停时，背景色变为浅灰色
+*/
 @media (prefers-color-scheme: dark) {
   .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
