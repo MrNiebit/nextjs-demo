@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -12,6 +13,32 @@ export default function Home() {
           height={38}
           priority
         />
+        
+        {/* Navigation to the new pages */}
+        <div className="w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
+          <h2 className="text-xl font-bold mb-4 text-center">Navigation</h2>
+          <div className="flex flex-col gap-3">
+            <Link 
+              href="/page1" 
+              className="w-full py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-md text-center transition-colors"
+            >
+              Go to Page 1
+            </Link>
+            <Link 
+              href="/page2" 
+              className="w-full py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-md text-center transition-colors"
+            >
+              Go to Page 2
+            </Link>
+            <Link 
+              href="/api-demo" 
+              className="w-full py-2 px-4 bg-green-500 hover:bg-green-600 text-white rounded-md text-center transition-colors"
+            >
+              API Endpoints Demo
+            </Link>
+          </div>
+        </div>
+        
         <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2 tracking-[-.01em]">
             Get started by editing{" "}
